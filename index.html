@@ -1,0 +1,79 @@
+---
+layout: default
+title: Zichen Zhu
+---
+
+<section class="intro">
+  <h1>Zichen Zhu</h1>
+
+  <p class="links">
+    <a href="mailto:your.email@example.com">Email</a> |
+    <a href="https://github.com/zichenzhu">GitHub</a> |
+    <a href="/blog/">Blog</a> |
+    <a href="/files/cv.pdf">CV</a>
+  </p>
+
+  <div class="profile">
+    <img src="/assets/images/profile.jpg" alt="Zichen Zhu profile photo">
+  </div>
+</section>
+
+<section>
+  <p>
+    I am an academic researcher interested in ... This homepage collects my
+    research interests, projects, notes, and writing.
+  </p>
+
+  <p>
+    <strong>Research interests:</strong> Add your areas here, such as machine
+    learning, systems, economics, language, or whatever best describes your work.
+  </p>
+
+  <p>
+    <strong>Email:</strong> your.email [at] example.com
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>News</h2>
+  <ul>
+    <li>[05/2026] Started this academic homepage and blog.</li>
+  </ul>
+</section>
+
+<hr>
+
+<section>
+  <h2>Selected Work</h2>
+
+  <article class="work">
+    <h3>Project or Paper Title</h3>
+    <p>
+      A short one- or two-sentence description of the project, publication, or
+      academic work can go here.
+    </p>
+    <p>
+      <a href="#">paper</a> |
+      <a href="#">code</a> |
+      <a href="#">project page</a>
+    </p>
+  </article>
+</section>
+
+<hr>
+
+<section>
+  <h2>Blog</h2>
+  <ul>
+    {% for post in site.posts limit:5 %}
+      <li>
+        [{{ post.date | date: "%m/%Y" }}]
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p><a href="/blog/">All posts</a></p>
+</section>

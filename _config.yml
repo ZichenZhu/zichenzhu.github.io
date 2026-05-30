@@ -1,0 +1,13 @@
+title: "Zichen Zhu"
+description: "Academic homepage and blog"
+url: "https://zichenzhu.github.io"
+baseurl: ""
+
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md
