@@ -64,12 +64,21 @@ ul {
   text-align: center;
 }
 
-.intro-body {
-  display: grid;
-  grid-template-columns: 190px 1fr;
-  gap: 30px;
-  align-items: start;
-  margin-top: 20px;
+.intro-table {
+  width: 100%;
+  margin-top: 22px;
+  border-collapse: collapse;
+}
+
+.profile-cell {
+  width: 210px;
+  vertical-align: top;
+  text-align: center;
+  padding-right: 30px;
+}
+
+.intro-copy {
+  vertical-align: top;
   text-align: left;
 }
 
@@ -77,7 +86,7 @@ ul {
   margin-bottom: 14px;
 }
 
-.profile img {
+.profile-cell img {
   display: block;
   width: 180px;
   max-width: 55vw;
@@ -136,9 +145,19 @@ footer {
     font-size: 28px;
   }
 
-  .intro-body {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .intro-table,
+  .intro-table tbody,
+  .intro-table tr,
+  .intro-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .profile-cell {
+    padding-right: 0;
+  }
+
+  .intro-copy {
     text-align: center;
   }
 }
