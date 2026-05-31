@@ -64,15 +64,12 @@ ul {
   text-align: center;
 }
 
-.intro-split {
+.intro-body {
   display: grid;
   grid-template-columns: 190px 1fr;
-  gap: 28px;
+  gap: 30px;
   align-items: start;
-  text-align: left;
-}
-
-.intro-copy h1 {
+  margin-top: 20px;
   text-align: left;
 }
 
@@ -139,13 +136,9 @@ footer {
     font-size: 28px;
   }
 
-  .intro-split {
+  .intro-body {
     grid-template-columns: 1fr;
     gap: 12px;
-    text-align: center;
-  }
-
-  .intro-copy h1 {
     text-align: center;
   }
 }
