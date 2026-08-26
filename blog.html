@@ -10,14 +10,76 @@ permalink: /blog/
   Essays, notes, reading responses, and other writing.
 </p>
 
-<ul class="post-list">
+<div class="filters" id="filters" hidden>
+  <div class="filter-row" data-axis="lang">
+    <span class="filter-label">Language</span>
+    <button type="button" class="filter is-active" data-value="all">All</button>
+    <button type="button" class="filter" data-value="en">English</button>
+    <button type="button" class="filter" data-value="zh" lang="zh-Hans">中文</button>
+  </div>
+  <div class="filter-row" data-axis="category">
+    <span class="filter-label">Kind</span>
+    <button type="button" class="filter is-active" data-value="all">All</button>
+    <button type="button" class="filter" data-value="technical">Technical</button>
+    <button type="button" class="filter" data-value="notes">Notes</button>
+  </div>
+</div>
+
+<ul class="post-list" id="post-list">
   {% for post in site.posts %}
-    <li>
-      <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    {% assign post_lang = post.lang | default: 'en' %}
+    {% assign post_cat = post.categories | first | default: 'notes' %}
+    <li data-lang="{{ post_lang }}" data-category="{{ post_cat }}">
+      <span class="post-date">
+        {{ post.date | date: "%B %-d, %Y" }}
+        &middot; {{ post_cat | capitalize }}
+        {% if post_lang == 'zh' %}&middot; <span lang="zh-Hans">中文</span>{% endif %}
+      </span>
+      <a href="{{ post.url | relative_url }}"{% if post_lang == 'zh' %} lang="zh-Hans"{% endif %}>{{ post.title }}</a>
       {% if post.description %}
-        <p>{{ post.description }}</p>
+        <p{% if post_lang == 'zh' %} lang="zh-Hans"{% endif %}>{{ post.description }}</p>
+      {% endif %}
+      {% if post.tags.size > 0 %}
+        <p class="post-tags">{% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
       {% endif %}
     </li>
   {% endfor %}
 </ul>
+
+<p class="empty-state" id="empty-state" hidden>No posts match these filters yet.</p>
+
+<script>
+  (function () {
+    var list = document.getElementById('post-list');
+    var items = list ? Array.prototype.slice.call(list.children) : [];
+    var filters = document.getElementById('filters');
+    var empty = document.getElementById('empty-state');
+    if (!items.length || !filters) return;
+
+    filters.hidden = false;
+    var active = { lang: 'all', category: 'all' };
+
+    function apply() {
+      var shown = 0;
+      items.forEach(function (li) {
+        var ok = (active.lang === 'all' || li.dataset.lang === active.lang) &&
+                 (active.category === 'all' || li.dataset.category === active.category);
+        li.hidden = !ok;
+        if (ok) shown++;
+      });
+      empty.hidden = shown > 0;
+    }
+
+    filters.addEventListener('click', function (event) {
+      var button = event.target.closest('.filter');
+      if (!button) return;
+      var row = button.parentElement;
+      row.querySelectorAll('.filter').forEach(function (b) { b.classList.remove('is-active'); });
+      button.classList.add('is-active');
+      active[row.dataset.axis] = button.dataset.value;
+      apply();
+    });
+
+    apply();
+  })();
+</script>

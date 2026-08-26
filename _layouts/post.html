@@ -2,10 +2,20 @@
 layout: default
 ---
 
-<article class="post">
+{% assign post_lang = page.lang | default: 'en' %}
+{% assign post_cat = page.categories | first | default: 'notes' %}
+
+<article class="post"{% if post_lang == 'zh' %} lang="zh-Hans"{% endif %}>
   <header>
     <h1>{{ page.title }}</h1>
-    <p class="post-date">{{ page.date | date: "%B %-d, %Y" }}</p>
+    <p class="post-date">
+      {{ page.date | date: "%B %-d, %Y" }}
+      &middot; {{ post_cat | capitalize }}
+      {% if post_lang == 'zh' %}&middot; <span lang="zh-Hans">中文</span>{% endif %}
+    </p>
+    {% if page.tags.size > 0 %}
+      <p class="post-tags">{% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
+    {% endif %}
   </header>
 
   {{ content }}

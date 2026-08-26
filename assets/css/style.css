@@ -95,7 +95,14 @@ ul {
 }
 
 .work {
-  margin: 18px 0;
+  margin: 18px 0 22px;
+}
+
+.work-meta {
+  color: #555;
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 6px;
 }
 
 .post-list {
@@ -121,6 +128,28 @@ ul {
 
 .post h1 {
   text-align: left;
+}
+
+.post h2 {
+  margin: 30px 0 12px;
+}
+
+.post img,
+.post figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.post figure {
+  margin: 26px 0;
+}
+
+.post figcaption {
+  margin-top: 6px;
+  color: #555;
+  font-size: 14px;
+  text-align: center;
 }
 
 .back-link,
@@ -160,4 +189,69 @@ footer {
   .intro-copy {
     text-align: center;
   }
+}
+
+/* Chinese posts: Georgia has no CJK coverage, so fall back to a serif that does. */
+[lang^="zh"] {
+  font-family: Georgia, "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC",
+    "STSong", serif;
+}
+
+.post[lang^="zh"] {
+  line-height: 1.85;
+}
+
+.filters {
+  margin: 0 0 22px;
+}
+
+.filter-row {
+  margin-bottom: 6px;
+}
+
+.filter-label {
+  display: inline-block;
+  width: 74px;
+  color: #555;
+  font-size: 14px;
+}
+
+.filter {
+  padding: 1px 4px;
+  border: 0;
+  background: none;
+  color: #0645ad;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filter:hover {
+  text-decoration: underline;
+}
+
+.filter.is-active {
+  color: #111;
+  text-decoration: underline;
+}
+
+.post-tags {
+  margin: 4px 0 0;
+}
+
+.tag {
+  color: #555;
+  font-size: 13px;
+}
+
+.tag::before {
+  content: "#";
+}
+
+.tag + .tag {
+  margin-left: 8px;
+}
+
+.empty-state {
+  color: #555;
 }

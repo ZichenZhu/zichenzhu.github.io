@@ -1,5 +1,5 @@
 title: "Zichen Zhu"
-description: "Academic homepage and blog"
+description: "Zichen Zhu is an undergraduate at Vanderbilt University studying Computer Science and Applied Mathematics, working on neural network verification, reinforcement learning, and machine learning on graphs."
 url: "https://zichenzhu.github.io"
 baseurl: ""
 
@@ -11,3 +11,12 @@ plugins:
 
 exclude:
   - README.md
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      lang: "en"
+      category: "notes"

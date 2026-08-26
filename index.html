@@ -22,13 +22,17 @@ title: Zichen Zhu
       </td>
       <td class="intro-copy">
         <p>
-          I am an academic researcher interested in ... This homepage collects my
-          research interests, projects, notes, and writing.
+          I am an undergraduate at <strong>Vanderbilt University</strong>, studying
+          Computer Science and Applied Mathematics (B.S. expected May 2027). I work as
+          an undergraduate research assistant at the
+          <strong>Institute for Software Integrated Systems</strong>, where I build
+          formal verification tools for spiking neural networks.
         </p>
 
         <p>
-          <strong>Research interests:</strong> Add your areas here, such as machine
-          learning, systems, economics, language, or whatever best describes your work.
+          <strong>Research interests:</strong> formal verification and certified
+          robustness of neural networks, reinforcement learning and search, and machine
+          learning on graphs and other structured data.
         </p>
 
         <p>
@@ -44,9 +48,20 @@ title: Zichen Zhu
 <section>
   <h2>News</h2>
   <ul>
+    <li>
+      [05/2026] Joined the Institute for Software Integrated Systems as an
+      undergraduate research assistant, working on robustness verification for
+      spiking neural networks.
+    </li>
     <li>[05/2026] Started this academic homepage and blog.</li>
+    <li>
+      [08/2024] Started as a teaching assistant and grader for CS 1101, and have since
+      taught four semesters &mdash; CS 1101 throughout, and CS 3251 in Fall 2025.
+    </li>
   </ul>
 </section>
+
+{% comment %} Hidden for now; unhide when the entries are ready to publish.
 
 <hr>
 
@@ -54,18 +69,48 @@ title: Zichen Zhu
   <h2>Selected Work</h2>
 
   <article class="work">
-    <h3>Project or Paper Title</h3>
+    <h3>Exact Robustness Verification for Spiking Neural Networks</h3>
+    <p class="work-meta">Star-set reachability, branch-and-bound, linear programming</p>
     <p>
-      A short one- or two-sentence description of the project, publication, or
-      academic work can go here.
+      An exact robustness verifier for trained convolutional first-to-fire spiking
+      neural networks, combining star-set reachability with property-directed
+      branch-and-bound. A property-directed pruning strategy confines branching to the
+      firing decisions capable of realizing a pending violation, cutting search nodes,
+      LP queries, and runtime by 8&ndash;26&times; with provably identical verdicts.
+      Benchmarked on 20 MNIST queries across six perturbation radii and two threat-model
+      sizes, delivering complete verdicts through &epsilon; = 0.10 (k = 1) and
+      &epsilon; = 0.07 (k = 2); presented as a poster and a technical talk.
     </p>
+  </article>
+
+  <article class="work">
+    <h3>AlphaZero Reinforcement Learning for Connect Four and Backgammon</h3>
+    <p class="work-meta">Python, MCTS, reinforcement learning</p>
     <p>
-      <a href="#">paper</a> |
-      <a href="#">code</a> |
-      <a href="#">project page</a>
+      An AlphaZero-style self-play system with a dual-headed policy&ndash;value network
+      and PUCT-guided Monte Carlo Tree Search, reaching a 95%+ win rate against a random
+      Connect Four baseline. To handle stochastic games, I proposed and implemented
+      Expecti-MCTS, a variant that interleaves player decision nodes with probabilistic
+      chance nodes, then adapted the agent to Backgammon with Chance-Aware MCTS that
+      branches explicitly over dice-roll outcomes &mdash; outperforming standard MCTS
+      baselines with a 75% win rate.
+    </p>
+  </article>
+
+  <article class="work">
+    <h3>English Football Player Market Value Prediction</h3>
+    <p class="work-meta">Python, XGBoost, MLP, GNN</p>
+    <p>
+      A valuation pipeline that classifies player-season observations into market-value
+      tiers from tabular features, categorical embeddings, and temporal season-based
+      splits. Modeling club-season teammate relationships as a graph enables GraphSAGE
+      message passing to capture relational team-context signals beyond isolated player
+      statistics. Across XGBoost, MLP, MLP + ClubID, and teammate-edge GraphSAGE, the
+      GNN achieved the best test performance at 0.580 accuracy and 0.550 macro-F1.
     </p>
   </article>
 </section>
+{% endcomment %}
 
 <hr>
 
